@@ -7,7 +7,7 @@ import { getRedirectResult } from "firebase/auth";
 import './authentication.styles.scss'
 import SignUpForm from "../../components/sign-up-form/signupform.component";
 import SignInForm from "../../components/sign-in-form copy/signinform.component";
-const SignIn = () => {
+const AuthScreen = () => {
     // useEffect(() => {
     //     const getRedirectDate = async () => {
     //         const response = getRedirectResult(auth);
@@ -38,4 +38,4 @@ const SignIn = () => {
     );
 }
 
-export default SignIn;
+export default AuthScreen;

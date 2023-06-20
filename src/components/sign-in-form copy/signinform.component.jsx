@@ -3,7 +3,8 @@ import { useState } from "react";
 import FormInput from '../form-input/form-input.component'
 import Button from '../button/button.component.jsx'
 import './signinform.styles.scss'
-import { createAuthUserWithEmailAndPassword, creteUserDocumentFromAuth, signInAuthUserWithEmailAndPassword, signInWithGooglePopup } from "../../utils/firebase/firebase.utils";
+import { signInAuthUserWithEmailAndPassword, signInWithGooglePopup } from "../../utils/firebase/firebase.utils";
+
 const defaultFormFields = {
 
     email: '',
@@ -18,21 +19,25 @@ const SignInForm = () => {
         password,
     } = formFields;
 
+
+
     const resetFormFields = () => {
         setFormFields(defaultFormFields);
     }
 
     const signInWithGoogle = async () => {
-        const { user } = await signInWithGooglePopup();
-        await creteUserDocumentFromAuth(user);
+        await signInWithGooglePopup();
+
+
     }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
 
         try {
-            const response = await signInAuthUserWithEmailAndPassword(email, password);
-            console.log(response);
+            await signInAuthUserWithEmailAndPassword(email, password);
+
+            resetFormFields();
 
         } catch (error) {
             if (error.code === 'auth/email-already-in-use') {
@@ -70,9 +75,10 @@ const SignInForm = () => {
                 <FormInput label='Password' type="password" name="password" id="signinpassword" onChange={handleChange} value={password} required />
                 <div className="buttons-container">
                     <Button type="submit" onClick={handleSubmit}>Sign In</Button>
-                    <Button type='button' buttonType='google' onClick={signInWithGoogle}>Google Sign In</Button>
+                    <Button buttonType='google' type='button' onClick={signInWithGoogle}>Google Sign In</Button>
                 </div>
             </form>
+
         </div>
     );
 
