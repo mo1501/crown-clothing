@@ -24,13 +24,6 @@ const categories = [
 
     },
     {
-      id: 4,
-      title: 'Womens',
-      imageUrl: "https://i.ibb.co/GCCdy8t/womens.png",
-      route: 'shop/womens'
-
-    },
-    {
       id: 5,
       title: 'Jackets',
       imageUrl: "https://i.ibb.co/px2tCc3/jackets.png",
