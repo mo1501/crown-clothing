@@ -1,7 +1,7 @@
 # Crown Clothing
 
 Crown Clothing is an online clothing store web application developed using React and Firebase. The application offers a seamless shopping experience with features such as user authentication (including Google authentication via Firebase), product browsing by category, adding products to the cart, and secure checkout powered by the Stripe API.
-![Crown Clothing Screenshot](public/images/CrownCategories.png)
+
 
 ## Features
 
@@ -12,7 +12,8 @@ Crown Clothing is an online clothing store web application developed using React
 
 - **Product Categories:**
   - Explore a wide range of clothing products categorized by types such as men, women, and accessories.
-![Crown Clothing Screenshot](public/images/CrownProductCheckout.png)
+![Crown Clothing Screenshot](public/images/CrownCategories.png)
+
 
 - **Shopping Cart:**
   - Conveniently add desired clothing items to the shopping cart.
@@ -20,6 +21,7 @@ Crown Clothing is an online clothing store web application developed using React
 
 - **Stripe Checkout:**
   - Enjoy a secure and streamlined checkout process with the integration of the Stripe API.
+![Crown Clothing Screenshot](public/images/CrownProductCheckout.png)
 
 ## Tech Stack
 
