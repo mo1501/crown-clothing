@@ -3,7 +3,6 @@ import { Fragment } from "react";
 import { Routes, Route } from 'react-router-dom'
 import { useContext } from "react";
 import { CategoriesContext } from "../../contexts/categories.context";
-import ProductCard from "../../components/product-card/product-card.component";
 import './shop.styles.scss';
 import CategoriesPreview from "../categories-preview/categories-preview.component";
 import Category from "../category/category.component";

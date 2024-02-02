@@ -5,12 +5,13 @@ import { BUTTON_TYPE_CLASSES } from '../button/button.component';
 
 import { PaymentButton, PaymentFormContainer } from './payment-form.styles';
 
-const PaymentForm = (total,user) => {
+const PaymentForm = ({total,user}) => {
   const stripe = useStripe();
   const elements = useElements();
-  const amount = total;
   const currentUser = user;
   const [isProcessingPayment, setIsProcessingPayment] = useState(false);
+
+
 
   const paymentHandler = async (e) => {
     e.preventDefault();
@@ -23,13 +24,12 @@ const PaymentForm = (total,user) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ amount: amount * 100 }),
+      body: JSON.stringify({ amount: total * 100 }),
     }).then((res) => {
       return res.json();
     });
-    console.log('Payment Intent Response:', response);
+  
     const clientSecret = response.paymentIntent.client_secret;
-    console.log('client secret:', clientSecret);
     const paymentResult = await stripe.confirmCardPayment(clientSecret, {
       payment_method: {
         card: elements.getElement(CardElement),
@@ -43,6 +43,7 @@ const PaymentForm = (total,user) => {
 
     if (paymentResult.error) {
       alert(paymentResult.error.message);
+      console.log(paymentResult.error.message);
     } else {
       if (paymentResult.paymentIntent.status === 'succeeded') {
         alert('Payment Successful!');
